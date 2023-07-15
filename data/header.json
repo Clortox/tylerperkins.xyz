@@ -1,0 +1,27 @@
+{
+    "LeftHandSide": [
+        {
+            "name": "Home",
+            "url": "/"
+        },
+        {
+            "name": "Resume",
+            "url": "/resume/"
+        },
+        {
+            "name": "Blog",
+            "url": "/blog/"
+        },
+        {
+            "name": "About",
+            "url": "/about/"
+        }
+    ],
+    "RightHandSide": [
+        {
+            "name": "Login",
+            "url": "https://auth.clortox.com/"
+        }
+    ]
+
+}

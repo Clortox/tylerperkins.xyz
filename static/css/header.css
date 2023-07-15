@@ -1,0 +1,39 @@
+/* Header */
+
+.navbar {
+    margin: 0;
+    background: rgb(11,11,12);
+    height: 3em;
+    border-color: white;
+    border-bottom: 5px;
+
+    overflow: hidden;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: underline 0.1em rgba(255,255,255,0);
+    transition: text-decoration 300ms;
+}
+
+.navbar a:hover {
+    text-decoration: underline 0.1em rgba(255,255,255,1);
+}
+
+.navbar-right {
+    float: right;
+    margin-right 10px;
+}

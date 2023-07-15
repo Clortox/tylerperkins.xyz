@@ -1,5 +1,22 @@
-<footer>
-    <p>
+<footer class="footer-fade">
+    <div class="footer-sections">
+        <div class="footer-list" style="width: 85%">
+            <h4 id="contact" class="footer-header" style="margin-bottom: 5px">Contact</h4>
+
+            {{ range .Site.Data.footer.Contact }}
+            <a data-value="{{ .name }}" class="scramble" href="{{ .url }}">{{ .name }}</a>
+            {{ end }}
+        </div>
+        <div class="footer-list" style="width: 85%"></div>
+        <div class="footer-list" style="width: 85%">
+            <h4 class="footer-header" style="margin-bottom: 5px">Services</h4>
+
+            {{ range .Site.Data.footer.Services }}
+            <a data-value="{{ .name }}" class="scramble" href="{{ .url }}">{{ .name }}</a>
+            {{ end }}
+        </div>
+    </div>
+    <p style="margin: 0px;">
         <small>Copyright &copy; {{ now.Year }}. All rights Reserved</small>
     </p>
 </footer>

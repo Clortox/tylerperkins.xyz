@@ -1,16 +1,7 @@
 {{ define "main" }}
-    <div class="centered top-fade dashed-bottom">
+    <div class="centered top-fade">
         <div class="intro-content">
             {{ .Content }}
         </div>
     </div>
-
-    <div class="content-list">
-        <ul>
-        {{ range .Site.RegularPages }}
-            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
-        </ul>
-    </div>
-
 {{ end }}

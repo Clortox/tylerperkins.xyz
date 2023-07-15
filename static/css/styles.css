@@ -1,3 +1,43 @@
+/* General Formatting*/
+
+@font-face {
+    font-family: 'Hermit';
+    src: url('fonts/Hermit-Regular.woff') format('woff');
+         url('fonts/Hermit-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    height: 100%;
+    padding-bottom: 0px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Hermit', Helvetica, Arial, sans-serif;
+    font-size: 56px;
+    line-height: 80px;
+    text-shadow: 1px 1px 1px grey;
+    color: white;
+}
+
+p, a, li, tr, td, span, noscript, figcaption {
+    font-family: 'Hermit', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100vw;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .centered {
     width: 100vw;
     max-width: 100%;
@@ -11,16 +51,13 @@
 }
 
 .top-fade {
-    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9 20%), rgba(0,0,0,0.1), 100%)
+    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 30%, rgba(0,0,0,0.1) 100%)
 }
 
 .dashed-bottom {
     border-bottom: 5px dashed white;
 }
 
-body {
-    overflow-x: hidden;
-    margin: 0;
-    height: 100%;
-    padding-bottom: 0px;
+.intro-content {
+    text-align: center;
 }

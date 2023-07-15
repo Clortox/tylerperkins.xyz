@@ -1,0 +1,10 @@
+# Vim files
+*.swp
+*.swo
+*.swn
+
+# Hugo
+/public
+/resources/_gen
+/resources/_gen/*
+

@@ -1,4 +1,10 @@
 <header class="navbar sticky">
-    <a href="{{ "/" | relURL }}">Home</a>
-    <a href="{{ "/about/" | relURL }}">About</a>
+    {{ range .Site.Data.header.LeftHandSide }}
+    <a data-value="{{ .name }}" class="scramble header-item" href="{{ .url | relURL }}">{{ .name }}</a>
+    {{ end }}
+    <div class="navbar-right">
+        {{ range .Site.Data.header.RightHandSide }}
+        <a data-value="{{ .name }}" class="scramble header-item" href="{{ .url }}">{{ .name }}</a>
+        {{ end }}
+    </div>
 </header>
