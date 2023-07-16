@@ -1,8 +1,26 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    {{ range .Pages }}
-        <article>
-            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        </article>
-    {{ end }}
+<div class="page-header dashed-bottom">
+    <h1 data-value="Posts" class="scramble">Posts</h1>
+    <p>Ideas, projects, and other musings.</p>
+</div>
+{{ range.Pages }}
+    <article class="light-dashed-bottom">
+        <a href="{{ .Permalink }}" onmouseover="scrambleLetters(document.querySelector('#{{ .Title | anchorize }}'))">
+            {{ if .Params.banner }}
+            <div class="post-list-body-container">
+            {{ else }}
+            <div class="post-list-body-container full-width">
+            {{ end }}
+                <h4 data-value="{{ .Title }}" id="{{ .Title | anchorize }}" class="post-list-title">{{ .Title }}</h4>
+                <small class="post-list-date">{{ .Date.Format "January 2, 2006" }}</small>
+                <p>{{ .Summary }}</p>
+            </div>
+            {{ if .Params.banner }}
+            <div class="post-list-image-container">
+                    <img src="{{ .Params.banner }}" alt="{{ .Title }}" class="post-list-image" />
+            </div>
+            {{ end }}
+        </a>
+    </article>
+{{ end }}
 {{ end }}

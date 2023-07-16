@@ -1,8 +1,11 @@
 {{ define "main" }}
-    <article>
-        <h1>{{ .Title }}</h1>
-        <div>
-            {{ .Content }}
-        </div>
-    </article>
+<div class="page-header dashed-bottom">
+    <h1 data-value="{{ .Title }}" class="scramble">{{ .Title }}</h1>
+    <small class="post-list-date">{{ .Date.Format "January 2, 2006" }}</small>
+</div>
+<article>
+    <div class="post clearfix">
+        {{ .Content }}
+    </div>
+</article>
 {{ end }}

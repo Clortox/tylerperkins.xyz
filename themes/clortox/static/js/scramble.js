@@ -6,12 +6,16 @@ window.onload = function() {
     });
 }
 
-function scramble(event) {
+function scramble(event){
+    scrambleLetters(event.target);
+}
+
+function scrambleLetters(element) {
     let iterations = 0;
-    const originalValue = event.target.dataset.value;
+    const originalValue = element.dataset.value;
 
     let interval = setInterval(() => {
-        event.target.innerText = event.target.innerText.split("")
+        element.innerText = element.innerText.split("")
             .map((letter, index) => {
                 if(index < iterations){
                     return originalValue[index];
@@ -23,7 +27,9 @@ function scramble(event) {
 
         if(iterations > originalValue.length){
             clearInterval(interval);
-            event.target.innerText = originalValue;
+            element.innerText = originalValue;
         }
     }, 30);
 }
+
+

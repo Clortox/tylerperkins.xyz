@@ -41,9 +41,7 @@ footer {
 }
 
 .footer-list a:hover {
-    text-decoration: underline 0.1em rgba(255,255,255,1);
     background: rgba(33,33,36,1);
-
 }
 
 .footer-header {

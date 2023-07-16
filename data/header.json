@@ -9,8 +9,12 @@
             "url": "/resume/"
         },
         {
-            "name": "Blog",
-            "url": "/blog/"
+            "name": "Posts",
+            "url": "/posts/"
+        },
+        {
+            "name": "Utilities",
+            "url": "/utilities/"
         },
         {
             "name": "About",
@@ -19,7 +23,7 @@
     ],
     "RightHandSide": [
         {
-            "name": "Login",
+            "name": "User Portal",
             "url": "https://auth.clortox.com/"
         }
     ]

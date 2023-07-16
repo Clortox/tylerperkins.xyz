@@ -8,6 +8,7 @@
     border-bottom: 5px;
 
     overflow: hidden;
+    z-index: 1000;
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -26,11 +27,6 @@
     text-align: center;
     padding: 10px 10px;
     text-decoration: underline 0.1em rgba(255,255,255,0);
-    transition: text-decoration 300ms;
-}
-
-.navbar a:hover {
-    text-decoration: underline 0.1em rgba(255,255,255,1);
 }
 
 .navbar-right {

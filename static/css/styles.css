@@ -33,9 +33,14 @@ p, a, li, tr, td, span, noscript, figcaption {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     width: 100vw;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .centered {
@@ -58,6 +63,130 @@ html {
     border-bottom: 5px dashed white;
 }
 
+.light-dashed-bottom {
+    border-bottom: 2px dashed #e6e6e6;
+}
+
 .intro-content {
     text-align: center;
+}
+
+
+.page-header {
+    text-align: center;
+    padding: 50px;
+    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 40%, rgba(0,0,0,0) 100%)
+}
+
+.post-list-title {
+    text-align: left;
+    font-size: 40px;
+    margin: 0px;
+}
+
+.post-list-image-container {
+    position: relative;
+    width: 20%;
+    padding-bottom: 20%;
+    overflow: hidden;
+    float: right;
+    margin-left: auto;
+}
+
+.post-list-body-container {
+    width: 80%;
+    float: left;
+    padding: 0px 20px;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+
+.post-list-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+article a {
+    text-decoration: none;
+    display: flex;
+    padding: 50px;
+    height: 30vh;
+    padding-bottom: 25px;
+    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 50%, rgba(0,0,0,0) 100%);
+    overflow: hidden;
+}
+
+.post {
+    margin: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    border: 2px dashed #e6e6e6;
+    padding: 2vw;
+    margin: auto;
+    max-width: 70%;
+    margin-bottom: 20px;
+    background: rgba(22, 22, 22, 0.9);
+}
+
+.figure-left {
+    float: left;
+    margin-right: 10px;
+    max-width: 55%;
+}
+
+.figure-right {
+    float: right;
+    margin-left: 10px;
+    max-width: 55%;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media only screen and (max-width: 768px) {
+    .post-list-image-container {
+        display: none;
+    }
+
+    .post-list-title{
+        text-align: center;
+    }
+
+    .post-list-body-container {
+        width: 100%;
+        float: none;
+        padding: 0px;
+    }
+
+    article a {
+        padding: 0px;
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    figure {
+        border: 2px dashed #e6e6e6;
+        padding: 2vw;
+        margin: auto;
+        max-width: 100%;
+        background: rgba(22, 22, 22, 0.9);
+        margin-bottom: 20px;
+    }
 }
