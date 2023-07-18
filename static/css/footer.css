@@ -6,10 +6,7 @@ footer {
   padding: 15px;
   text-align: center;
   padding-top: 3vh;
-}
-
-.footer-fade {
-    background: linear-gradient(rgba(11,11,12,0.2) 0%, rgba(11,11,12,1) 35%);
+  z-index: 100;
 }
 
 .footer-sections {
@@ -46,10 +43,17 @@ footer {
 
 .footer-header {
     margin-top: 5px;
+    max-width: 100%;
 
 }
 
 small {
     font-size: 0.8em;
     color: rgba(255,255,255,0.5);
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-sections {
+        grid-template-columns: 1fr;
+    }
 }

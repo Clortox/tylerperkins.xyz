@@ -1,16 +1,13 @@
-@keyframes animatedBackground {
-    from { background-position: 0 0; }
-    to { background-position: 0 100%; }
-}
-@keyframes rotateBackground {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-body {
+.background {
     background-image: url("/img/webb-dark.png");
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 
     background-position: center;
-    background-repeat: cover;
-    background-attachment: fixed;
+    background-repeat: repeat;
+    background-attachment: auto;
 }
+
+

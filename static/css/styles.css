@@ -14,6 +14,7 @@ body {
     margin: 0;
     height: 100%;
     padding-bottom: 0px;
+    background-color: rgba(11,11,12,1);
 }
 
 h1, h2, h3, h4 {
@@ -48,11 +49,6 @@ html {
     max-width: 100%;
     height: 100vh;
 
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
 }
 
 .top-fade {
@@ -69,8 +65,12 @@ html {
 
 .intro-content {
     text-align: center;
-}
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
+}
 
 .page-header {
     text-align: center;
@@ -119,8 +119,13 @@ article a {
     padding: 50px;
     height: 30vh;
     padding-bottom: 25px;
-    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 50%, rgba(0,0,0,0) 100%);
     overflow: hidden;
+    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 50%, rgba(0,0,0,0) 100%);
+}
+
+article a:hover {
+    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 50%, rgba(32,42,68,0.5) 100%);
+    transition: 300ms linear;
 }
 
 .post {

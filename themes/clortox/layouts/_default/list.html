@@ -5,7 +5,7 @@
 </div>
 {{ range.Pages }}
     <article class="light-dashed-bottom">
-        <a href="{{ .Permalink }}" onmouseover="scrambleLetters(document.querySelector('#{{ .Title | anchorize }}'))">
+        <a href="{{ .Permalink }}">
             {{ if .Params.banner }}
             <div class="post-list-body-container">
             {{ else }}
