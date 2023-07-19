@@ -9,6 +9,11 @@
     font-display: swap;
 }
 
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}
+
 body {
     overflow-x: hidden;
     margin: 0;
@@ -52,7 +57,7 @@ html {
 }
 
 .top-fade {
-    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 30%, rgba(0,0,0,0.1) 100%)
+    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 30%, rgba(0,0,0,0.0001) 100%)
 }
 
 .dashed-bottom {
@@ -69,7 +74,35 @@ html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
 
+.typewriter {
+    animation: blink-caret .75s step-end infinite;
+    border-right: .15em solid white;
+    display: inline;
+
+}
+
+.homepage-card {
+    height: calc(100vh - 6vh);
+    width: calc(100vw  - 6vw);
+    padding: 1vh 1vw;
+    padding-top: 2vh;
+    background-color: rgba(11,11,12,0.4);
+    corner-radius: 10px;
+    margin: 2vh 2vw;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 65% 1fr;
+
+}
+
+.hobbies {
+    background-color: black;
+    height: 100%;
+    padding: 10px;
 }
 
 .page-header {

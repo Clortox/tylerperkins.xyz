@@ -1,0 +1,13 @@
+{
+    "Hobbies": [
+        {
+            "value": "Software Architecture"
+        },
+        {
+            "value": "Front End Development"
+        },
+        {
+            "value": "Back End Development"
+        }
+    ]
+}

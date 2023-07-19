@@ -1,4 +1,5 @@
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+const typeWriterSpeed = 60;
 
 window.onload = function() {
     document.querySelectorAll(".scramble").forEach(item => {
@@ -11,6 +12,13 @@ window.onload = function() {
 
         parallax.style.transform = 'translateY(' + scrollPosition * .5 + 'px)';
     })
+    document.querySelectorAll(".typewriter").forEach(item => {
+        observer.observe(item);
+    });
+}
+
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
 function scramble(event){
@@ -39,4 +47,25 @@ function scrambleLetters(element) {
     }, 30);
 }
 
+async function typeWriter(element) {
+    let typeWriterText = element.getAttribute("data-value");
+    let output = element.innerText;
 
+    for(let i = 0; i < typeWriterText.length; ++i){
+        output += typeWriterText.charAt(i);
+        // sleep for typeWriterSpeed milliseconds
+        await sleep(typeWriterSpeed);
+        element.innerText = output;
+    }
+
+}
+
+let observer = new IntersectionObserver(function(entries) {
+    for (let entry of entries){
+        // If the element is visible, start the animation
+        if(entry.isIntersecting) {
+            typeWriter(entry.target);
+            observer.unobserve(entry.target);
+        }
+    }
+}, { threshold: 0.7 });
