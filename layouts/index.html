@@ -5,6 +5,24 @@
         </div>
     </div>
     <div class="homepage-card">
+        <h1 data-show="about-description" data-value="uname -a" class="typewriter card-title">~ $&nbsp;</h1>
+        <div class="about-grid">
+            <div id="about-description" class="about-description">
+                {{ range .Site.Data.index.About.Content }}
+                    <p data-value="{{ .value }}"></p>
+                {{ end }}
+            </div>
+            <div class="hobbies">
+                <p data-show="about-hobbies" data-value="cat hobbies.txt | less" class="typewriter">~ $&nbsp;</p>
+                <div id="about-hobbies">
+                    {{ range .Site.Data.index.About.Hobbies }}
+                        <p data-value="{{ .value }}"></p>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="homepage-card">
         <h1 to-show="about-description" data-value="uname -a" class="typewriter">~ $&nbsp;</h1>
         <div class="about-grid">
             <div id="about-description">
@@ -12,6 +30,8 @@
             everything.</p>
             <p>Aspiring postmath; Jack of all trades, master of few.</p>
             <p>Full stack developer at Etactics Inc.</p>
+            <p>Passion for low level software, embedded systems, software
+            architecture, and machine learning.</p>
             </div>
             <div class="hobbies">
                 <p data-value="cat hobbies.txt | less" class="typewriter">~ $&nbsp;</p>

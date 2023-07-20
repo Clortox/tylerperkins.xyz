@@ -91,12 +91,30 @@ html {
     background-color: rgba(11,11,12,0.4);
     corner-radius: 10px;
     margin: 2vh 2vw;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow-y: hidden;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 65% 1fr;
+    grid-template-rows: 1fr max-content;
+    height: 100%;
+    width: 100%;
+}
 
+.card-title {
+    display: inline-block;
+    margin: 10px;
+    margin-right: auto;
+    padding-right: 10px;
+
+}
+
+.about-description p {
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .hobbies {

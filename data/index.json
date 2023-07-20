@@ -1,13 +1,30 @@
 {
-    "Hobbies": [
-        {
-            "value": "Software Architecture"
-        },
-        {
-            "value": "Front End Development"
-        },
-        {
-            "value": "Back End Development"
-        }
-    ]
+    "About": {
+        "Content": [
+            {
+                "value": "Software developer with a passion for literally just about everything."
+            },
+            {
+                "value": "Aspiring postmath; Jack of all trades, master of few."
+            },
+            {
+                "value": "Full stack developer at Etactics Inc, with a focus on back end development and system architecture."
+            },
+            {
+                "value": "Passion for low level software, embedded systems, software architecture, and machine learning."
+            }
+
+        ],
+        "Hobbies": [
+            {
+                "value": "Software Architecture"
+            },
+            {
+                "value": "Front End Development"
+            },
+            {
+                "value": "Back End Development"
+            }
+        ]
+    }
 }

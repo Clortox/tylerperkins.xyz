@@ -21,6 +21,11 @@ function sleep(milliseconds) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
+function replaceSpacesWithNbsp(string) {
+    if (string == null) return;
+    return string.replace(/ /g, "\xa0");
+}
+
 function scramble(event){
     scrambleLetters(event.target);
 }
@@ -51,6 +56,7 @@ async function typeWriter(element) {
     let typeWriterText = element.getAttribute("data-value");
     let output = element.innerText;
 
+    // write the main text
     for(let i = 0; i < typeWriterText.length; ++i){
         output += typeWriterText.charAt(i);
         // sleep for typeWriterSpeed milliseconds
@@ -58,6 +64,27 @@ async function typeWriter(element) {
         element.innerText = output;
     }
 
+    //try and do the paragraphs associated
+    let hiddenElementId = element.getAttribute("data-show");
+
+    if(hiddenElementId == null) return;
+
+    let hiddenElement = document.getElementById(hiddenElementId);
+    let hiddenElementSpeed = 5;
+
+    let paragraphs = hiddenElement.querySelectorAll("p");
+    for (let p of paragraphs){
+        let hiddenElementText = p.getAttribute("data-value");
+        //hiddenElementText = replaceSpacesWithNbsp(hiddenElementText);
+        p.innerHtml = "";
+
+        for (let i = 0; i < hiddenElementText.length; ++i){
+            p.innerText += hiddenElementText.charAt(i);
+            await sleep(hiddenElementSpeed);
+        }
+
+        await sleep(50);
+    }
 }
 
 let observer = new IntersectionObserver(function(entries) {
