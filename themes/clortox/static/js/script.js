@@ -7,8 +7,13 @@ window.onload = function() {
     });
 
     window.addEventListener('scroll', function() {
-        const parallax = document.querySelector('.parallax')
+        let parallax = document.querySelector('.parallax')
         let scrollPosition = window.pageYOffset;
+
+        let newSize = (document.querySelector('#content').offsetHeight * 0.66);
+        if(newSize < window.innerHeight)
+            newSize = window.innerHeight;
+        parallax.style.height = newSize + "px";
 
         parallax.style.transform = 'translateY(' + scrollPosition * .5 + 'px)';
     })

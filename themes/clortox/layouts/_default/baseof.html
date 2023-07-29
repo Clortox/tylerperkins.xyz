@@ -2,9 +2,9 @@
 <html>
     {{- partial "head.html" . -}}
     <body>
-        <div class="parallax background"></div>
         {{- partial "header.html" . -}}
         <div id="content">
+        <div class="parallax background" style="overflow-y: none;"></div>
         {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
