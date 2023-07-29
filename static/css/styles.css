@@ -112,6 +112,10 @@ html {
 
 }
 
+.about-description {
+    margin: 5px;
+}
+
 .about-description p {
     word-wrap: break-word;
     white-space: pre-wrap;
