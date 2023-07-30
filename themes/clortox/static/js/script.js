@@ -82,10 +82,12 @@ async function typeWriter(element) {
         let hiddenElementText = p.getAttribute("data-value");
         //hiddenElementText = replaceSpacesWithNbsp(hiddenElementText);
         p.innerHtml = "";
+        output = "";
 
         for (let i = 0; i < hiddenElementText.length; ++i){
-            p.innerText += hiddenElementText.charAt(i);
+            output += hiddenElementText.charAt(i);
             await sleep(hiddenElementSpeed);
+            p.innerText = output; 
         }
 
         await sleep(50);

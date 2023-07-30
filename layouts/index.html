@@ -1,7 +1,10 @@
 {{ define "main" }}
     <div class="centered top-fade">
         <div class="intro-content">
-            {{ .Content }}
+            <h1 data-value="Hi, I'm Tyler" data-show="intro-tagline" class="typewriter"></h1>
+            <div id="intro-tagline">
+                <p data-value="Software engineer, postmath"></p>
+            </div>
         </div>
     </div>
     <div class="homepage-card">
@@ -22,6 +25,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div class="homepage-card">
         <h1 to-show="about-description" data-value="uname -a" class="typewriter">~ $&nbsp;</h1>
         <div class="about-grid">
@@ -38,4 +42,5 @@
             </div>
         </div>
     </div>
+    -->
 {{ end }}
