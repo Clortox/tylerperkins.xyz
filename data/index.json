@@ -5,17 +5,19 @@
                 "value": "Software developer with a passion for literally just about everything."
             },
             {
+                "value": "Employed as a full stack developer at Etactics Inc, with a focus on back end development and system architecture."
+            },
+            {
                 "value": "Aspiring postmath; Jack of all trades, master of few."
             },
             {
-                "value": "Full stack developer at Etactics Inc, with a focus on back end development and system architecture."
+                "value": "Passion for software design, low level systems, and hyper-technical miuite details. Love reading an RFC proposal to unwind for the night, or to start my day with my current textbook of choice."
             },
             {
-                "value": "Passion for low level software, embedded systems, software architecture, and machine learning."
+                "value": "Currently persuing a Masters in Computer Science."
             }
-
         ],
-        "Hobbies": [
+        "Interests": [
             {
                 "value": "Software Architecture"
             },
@@ -24,6 +26,60 @@
             },
             {
                 "value": "Back End Development"
+            },
+            {
+                "value": "Web Design"
+            },
+            {
+                "value": "Welding"
+            },
+            {
+                "value": "Woodworking"
+            },
+            {
+                "value": "Aviation"
+            },
+            {
+                "value": "Cars and Small Engines"
+            },
+            {
+                "value": "Philosophy"
+            },
+            {
+                "value": "Ham Radio (CQCQCQ KE8TIZ CQCQCQ)"
+            },
+            {
+                "value": "Chemistry"
+            },
+            {
+                "value": "Mathematics"
+            },
+            {
+                "value": "Firearms"
+            },
+            {
+                "value": "Coffee"
+            },
+            {
+                "value": "Botany"
+            },
+            {
+                "value": "Homesteading"
+            },
+            {
+                "value": "Self-Sufficiency"
+            },
+            {
+                "value": "Embedded Systems"
+            },
+            {
+                "value": "Computer Engineering"
+            },
+            {
+                "value": "Artifical Intelligence (Language Models)"
+            },
+            {
+                "value": "Cryptocurrencies (Monero)"
             }
         ]
     }

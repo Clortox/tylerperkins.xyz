@@ -121,7 +121,13 @@ html {
     white-space: pre-wrap;
 }
 
-.hobbies {
+.terminal-text {
+    word-wrap: break-word;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.mini-terminal {
     background-color: black;
     height: 100%;
     padding: 10px;
