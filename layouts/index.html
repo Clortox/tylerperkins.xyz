@@ -9,7 +9,7 @@
     </div>
     <div class="homepage-card">
         <div>
-            <h1 data-show="about-description" data-value="uname -a" class="typewriter card-title">~ $&nbsp;</h1>
+            <h4 data-show="about-description" data-value="uname -a" class="typewriter card-title">~ $&nbsp;</h1>
             <br/>
             <small>AKA About for non-nerds</small>
         </div>
@@ -21,29 +21,7 @@
             </div>
             <div class="mini-terminal">
                 <p data-show="about-interests" data-value="cat interests.txt | less" class="typewriter">~ $&nbsp;</p>
-                <div id="about-interests">
-                    {{ range .Site.Data.index.About.Interests }}
-                        <p class="terminal-text" data-value="{{ .value }}"></p>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="homepage-card">
-        <div>
-            <h1 data-show="about-description" data-value="uname -a" class="typewriter card-title">~ $&nbsp;</h1>
-            <small>AKA About for non-nerds</small>
-        </div>
-        <div class="about-grid">
-            <div id="about-description" class="about-description">
-                {{ range .Site.Data.index.About.Content }}
-                    <p data-value="{{ .value }}"></p>
-                {{ end }}
-            </div>
-            <div class="mini-terminal">
-                <p data-show="about-interests" data-value="cat interests.txt | less" class="typewriter">~ $&nbsp;</p>
-                <div id="about-interests">
+                <div id="about-interests" class="terminal-contents">
                     {{ range .Site.Data.index.About.Interests }}
                         <p class="terminal-text" data-value="{{ .value }}"></p>
                     {{ end }}

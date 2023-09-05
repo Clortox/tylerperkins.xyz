@@ -10,7 +10,7 @@ window.onload = function() {
         let parallax = document.querySelector('.parallax')
         let scrollPosition = window.pageYOffset;
 
-        let newSize = (document.querySelector('#content').offsetHeight * 0.66);
+        let newSize = (document.querySelector('#content').offsetHeight * 0.8);
         if(newSize < window.innerHeight)
             newSize = window.innerHeight;
         parallax.style.height = newSize + "px";

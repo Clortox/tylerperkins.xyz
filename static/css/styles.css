@@ -22,12 +22,21 @@ body {
     background-color: rgba(11,11,12,1);
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Hermit', Helvetica, Arial, sans-serif;
     font-size: 56px;
     line-height: 80px;
     text-shadow: 1px 1px 1px grey;
     color: white;
+}
+
+h4 {
+    font-family: 'Hermit', Helvetica, Arial, sans-serif;
+    font-size: 40px;
+    line-height: 60px;
+    text-shadow: 1px 1px 1px grey;
+    color: white;
+
 }
 
 p, a, li, tr, td, span, noscript, figcaption {
@@ -61,11 +70,7 @@ html {
 }
 
 .dashed-bottom {
-    border-bottom: 5px dashed white;
-}
-
-.light-dashed-bottom {
-    border-bottom: 2px dashed #e6e6e6;
+    border-bottom: 5px solid rgba(11,11,12,1);
 }
 
 .intro-content {
@@ -84,15 +89,15 @@ html {
 }
 
 .homepage-card {
-    height: calc(100vh - 6vh);
+    height: calc(70vh - 6vh);
     width: calc(100vw  - 6vw);
     padding: 1vh 1vw;
     padding-top: 2vh;
     background-color: rgba(11,11,12,0.4);
     corner-radius: 10px;
     margin: 2vh 2vw;
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     overflow-y: hidden;
 }
 
@@ -100,8 +105,10 @@ html {
     display: grid;
     grid-template-columns: 65% 1fr;
     grid-template-rows: 1fr max-content;
-    height: 100%;
+    flex-grow: 1;
     width: 100%;
+    max-height: calc(100% - 100px);
+    overflow-y: hidden;
 }
 
 .card-title {
@@ -109,7 +116,6 @@ html {
     margin: 10px;
     margin-right: auto;
     padding-right: 10px;
-
 }
 
 .about-description {
@@ -129,8 +135,13 @@ html {
 
 .mini-terminal {
     background-color: black;
-    height: 100%;
+    height: calc(100% - 20px);
+    max-height: calc(100% - 20px);
     padding: 10px;
+}
+
+.terminal-contents {
+    overflow-y: scroll;
 }
 
 .page-header {
@@ -181,12 +192,12 @@ article a {
     height: 30vh;
     padding-bottom: 25px;
     overflow: hidden;
-    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 50%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(rgba(11,11,12,0) 0%, rgba(11,11,12,0.6) 5%, rgba(0,0,0,0) 100%);
+    transition: background 200ms linear;
 }
 
 article a:hover {
-    background: linear-gradient(rgba(11,11,12,1) 0%, rgba(11,11,12,0.9) 50%, rgba(32,42,68,0.5) 100%);
-    transition: 300ms linear;
+    background: black;
 }
 
 .post {
@@ -243,6 +254,8 @@ figure {
     article a {
         padding: 0px;
         height: 100%;
+        max-height: 75vh;
+        margin-bottom: 1vh;
         flex-direction: column;
         text-align: center;
     }
@@ -254,5 +267,18 @@ figure {
         max-width: 100%;
         background: rgba(22, 22, 22, 0.9);
         margin-bottom: 20px;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-rows: 60% 40%;
+        grid-template-columns: 100%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .about-description {
+        margin: 5px;
+        overflow-y: scroll;
     }
 }

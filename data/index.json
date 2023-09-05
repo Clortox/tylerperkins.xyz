@@ -22,13 +22,7 @@
                 "value": "Software Architecture"
             },
             {
-                "value": "Front End Development"
-            },
-            {
-                "value": "Back End Development"
-            },
-            {
-                "value": "Web Design"
+                "value": "Web Development"
             },
             {
                 "value": "Welding"
@@ -46,7 +40,7 @@
                 "value": "Philosophy"
             },
             {
-                "value": "Ham Radio (CQCQCQ KE8TIZ CQCQCQ)"
+                "value": "Ham Radio (CQCQCQ KE8TIZ QRK?)"
             },
             {
                 "value": "Chemistry"
@@ -67,19 +61,10 @@
                 "value": "Homesteading"
             },
             {
-                "value": "Self-Sufficiency"
-            },
-            {
                 "value": "Embedded Systems"
             },
             {
                 "value": "Computer Engineering"
-            },
-            {
-                "value": "Artifical Intelligence (Language Models)"
-            },
-            {
-                "value": "Cryptocurrencies (Monero)"
             }
         ]
     }

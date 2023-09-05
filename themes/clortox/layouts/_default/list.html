@@ -1,10 +1,10 @@
 {{ define "main" }}
-<div class="page-header dashed-bottom">
+<div class="page-header">
     <h1 data-value="Posts" class="typewriter scramble"></h1>
     <p>Ideas, projects, and other musings.</p>
 </div>
 {{ range.Pages }}
-    <article class="light-dashed-bottom">
+    <article>
         <a href="{{ .Permalink }}">
             {{ if .Params.banner }}
             <div class="post-list-body-container">
