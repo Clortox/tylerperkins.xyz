@@ -1,0 +1,23 @@
+kind: pipeline
+type: docker
+name: build-and-deploy
+
+steps:
+  - name: build
+    image: plugins/hugo
+    settings:
+      hugo_version: 0.79.0
+      extended: true
+      validate: true
+  - name: upload-to-minio
+    image: amazon/aws-cli
+    environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: minio_access_key
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: minio_secret_access_key
+      AWS_DEFAULT_REGION: gluttony 
+      AWS_S3_ENDPOINT: https://gluttony.s3.clortox.com/
+    commands:
+      - aws s3 cp Resume.pdf s3://static-assets/Resume.pdf --endpoint-url $AWS_S3_ENDPOINT
+

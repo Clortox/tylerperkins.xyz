@@ -6,15 +6,11 @@
         },
         {
             "name": "Resume",
-            "url": "/resume/"
+            "url": "https://s3.clortox.com/static-assets/Resume.pdf"
         },
         {
             "name": "Posts",
             "url": "/posts/"
-        },
-        {
-            "name": "Utilities",
-            "url": "/utilities/"
         }
     ],
     "RightHandSide": [
