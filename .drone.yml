@@ -19,6 +19,6 @@ steps:
       AWS_DEFAULT_REGION: gluttony 
       AWS_S3_ENDPOINT: https://gluttony.s3.clortox.com/
     commands:
-      - aws s3 rm s3://clortox.com --recursive
+      - aws s3 rm s3://clortox.com --recursive --endpoint-url $AWS_S3_ENDPOINT
       - aws s3 cp public s3://clortox.com/ --recursive --endpoint-url $AWS_S3_ENDPOINT
 
