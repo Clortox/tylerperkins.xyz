@@ -2,8 +2,8 @@
 
 @font-face {
     font-family: 'Hermit';
-    src: url('fonts/Hermit-Regular.woff') format('woff');
-         url('fonts/Hermit-Regular.woff2') format('woff2');
+    src: url('https://www.clortox.com/fonts/Hermit-Regular.woff') format('woff');
+         url('https://www.clortox.com/fonts/Hermit-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
