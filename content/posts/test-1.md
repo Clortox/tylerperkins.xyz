@@ -1,6 +1,7 @@
 ---
 title: "My first post"
 date: 2023-07-15
+draft: true
 banner: "https://s3.clortox.com/static-assets/boat.jpg"
 ---
 
