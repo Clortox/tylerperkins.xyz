@@ -185,7 +185,7 @@ html {
     object-fit: contain;
 }
 
-article a {
+article > a {
     text-decoration: none;
     display: flex;
     padding: 50px;
@@ -196,12 +196,15 @@ article a {
     transition: background 200ms linear;
 }
 
-article a:hover {
+article > a:hover {
     background: black;
 }
 
 .post {
-    margin: 10px;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
 }
 
 img {
