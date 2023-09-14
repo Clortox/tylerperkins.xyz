@@ -7,5 +7,8 @@
     <script src="{{ "js/script.js" | relURL }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://ackee.clortox.com/tracker.js" data-ackee-server="https://ackee.clortox.com" data-ackee-domain-id="8e41f517-df44-41cb-970d-208872712ed6"></script>
+    {{ range .AlternativeOutputFormats -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
     <title>Tylers Perkins - Software Engineer</title>
 </head>
