@@ -6,7 +6,6 @@ steps:
   - name: build
     image: plugins/hugo
     settings:
-      hugo_version: 0.79.0
       extended: true
       validate: true
   - name: upload-to-minio
