@@ -14,7 +14,7 @@ The new tech stack this time around is a replicated S3 bucket ( hosted using [Mi
 
 The real win for me comes from a great simplification of the deployment process, though. With hugo, I can build the static website, then with my self hosted CI/CD runner ( [Drone](https://drone.io), my self hosted instance is [here](https://drone.clortox.com) ) I can auto build the site then deploy it, and only change the state in the bucket! How awesome is that!
 
-![](https://s3.clortox.com/static-assets/img/mermaid-diagram-2023-09-11-214406.png)
+![](diagram.png)
 
 Before I had this nasty system of updating files in the git repo (which required me to open the git repo anytime I wanted to make any changes to the website), then pushing it then running a upload script. I thought it was cool at the time (and was proud of it), but now this has made me much more enthusiastic about writing stuff for the site. With it all tying into obsidian (I'll try to write about my obsidian workflow stuff soon) it makes it super easy to write a post, making me more likely to do it.
 
