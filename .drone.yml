@@ -20,4 +20,15 @@ steps:
     commands:
       - aws s3 rm s3://clortox.com --recursive --endpoint-url $AWS_S3_ENDPOINT
       - aws s3 cp public s3://clortox.com/ --recursive --endpoint-url $AWS_S3_ENDPOINT
+  - name: notify
+    image: clortox/drone-ntfy
+    settings:
+      URL: https://ntfy.clortox.com
+      USERNAME: drone
+      PASSWORD:
+        from_secret: ntfy_password
+      TOPIC: drone-builds
+      MESSAGE: clortox.com has deployed!
+      CLICK: https://www.clortox.com/
+      TITLE: Website Deploymen
 

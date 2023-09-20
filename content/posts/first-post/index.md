@@ -1,7 +1,7 @@
 ---
 title: "First Post"
 date: 2023-09-11T21:30:41-04:00
-draft: false 
+draft: false
 ---
 
 This is my first post from the rewrite! I decided to rewrite my website in [Hugo](https://gohugo.io) this time instead of PHP. The real innovation here is the new tech stack underpinning the process of hosting this thing.
