@@ -46,6 +46,14 @@ p, a, li, tr, td, span, noscript, figcaption {
     color: white;
 }
 
+code {
+    font-family: 'Hermit', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    color: white;
+
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
