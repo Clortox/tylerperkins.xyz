@@ -15,6 +15,10 @@
     ],
     "RightHandSide": [
         {
+            "name": "PGP Key",
+            "url": "/me.gpg"
+        },
+        {
             "name": "User Portal",
             "url": "https://auth.clortox.com/"
         }
