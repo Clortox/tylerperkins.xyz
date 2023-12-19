@@ -54,6 +54,11 @@ code {
 
 }
 
+table {
+    background-color: rgba(11,11,12,0.6);
+    margin: 5px;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
