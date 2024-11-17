@@ -6,7 +6,7 @@
         },
         {
             "name": "Resume",
-            "url": "https://s3.clortox.com/static-assets/Resume.pdf"
+            "url": "/resume.pdf"
         },
         {
             "name": "Posts",
