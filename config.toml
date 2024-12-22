@@ -1,7 +1,0 @@
-baseURL = 'http://tylerperkins.xyx'
-languageCode = 'en-us'
-LanguageCode = 'en-us'
-title = 'Tylers Website'
-theme = "clortox"
-[author]
-  name = 'Tyler'

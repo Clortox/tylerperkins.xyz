@@ -1,0 +1,21 @@
+baseURL: 'http://tylerperkins.xyx'
+languageCode: 'en-us'
+LanguageCode: 'en-us'
+title: 'Tylers Website'
+theme: "clortox"
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
+params:
+  math: true

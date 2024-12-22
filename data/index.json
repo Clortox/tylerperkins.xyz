@@ -2,7 +2,7 @@
     "About": {
         "Content": [
             {
-                "value": "Software developer with a passion for literally just about everything."
+                "value": "Software developer with a passion for learning everything."
             },
             {
                 "value": "Employed as a full stack developer at Etactics Inc, with a focus on back end development and system architecture."
@@ -11,7 +11,7 @@
                 "value": "Aspiring polymath; Jack of all trades, master of few."
             },
             {
-                "value": "Passion for software design, low level systems, and hyper-technical minute details. Love reading an RFC proposal to unwind for the night, or to start my day with my current textbook of choice."
+                "value": "Passion for software design and architecture, pure math, and all forms of engineering."
             },
             {
                 "value": "Currently persuing a Masters in Computer Science at Georgia Tech."
@@ -22,22 +22,22 @@
                 "value": "Software Architecture"
             },
             {
-                "value": "Web Development"
+                "value": "Embedded Systems"
             },
             {
-                "value": "Welding"
+                "value": "Computer Engineering"
             },
             {
-                "value": "Woodworking"
+                "value": "Mechanical Engineering"
             },
             {
-                "value": "Aviation"
+                "value": "Control Systems"
+            },
+            {
+                "value": "Fabrication (Welding, Woodworking, 3D Printing, Laser Cutting)"
             },
             {
                 "value": "Cars and Small Engines"
-            },
-            {
-                "value": "Philosophy"
             },
             {
                 "value": "Ham Radio (CQCQCQ KE8TIZ QRK?)"
@@ -52,19 +52,13 @@
                 "value": "Firearms"
             },
             {
-                "value": "Coffee"
-            },
-            {
                 "value": "Botany"
             },
             {
                 "value": "Homesteading"
             },
             {
-                "value": "Embedded Systems"
-            },
-            {
-                "value": "Computer Engineering"
+                "value": "Philosophy"
             }
         ]
     }

@@ -13,18 +13,20 @@ neat enough to talk about here. So through next few minutes, we will work up the
 So why do we need any kind of special clock? Why won't a normal clock do?
 Big surprise, but time is hard to keep. [Like really hard](https://en.wikipedia.org/wiki/History_of_timekeeping_devices).
 Therefore, in a large distributed system (of possibly tens, or hundreds of machines), we really don't want to try and keep all clocks in sync. 
-Especially in the case of computer systems, where events happen on the scale of milliseconds down to microseconds or less. 
+Given we are talking about computer systems, where events happen on the scale of milliseconds down to microseconds or less, makes precision especially important.
 So lets just abandon the concept of real time all together. What is we instead use *logical time*?
 
 *Logical Time* is a mechanism for determining the ordering of events, without the use of a real clock. So think of it more as a timer.
 For example, event 1 happens *before* event 2. Simple enough, right?
 
-We can be more formal and define a *Logical Clock* as some function, lets call it C(), that creates a *time stamp* that preserves this order.
-So for a set of events e1 and e2, where e1 happened *before* e2,
+We can be more formal and define a *Logical Clock* as some function, lets call it \(C()\), that creates a *time stamp* that preserves this order.
+So for a set of events \(e1\) and \(e2\), where \(e1\) happened *before* \(e2\),
 
-e1 -> e2 ==> C(e1) < C(e2)
+$$
+e_1 \rightarrow e_2 \implies C(e_1) < C(e_2)
+$$
 
-(In case you haven't seem them before, '->' encapsulates that e1 happens first, then e2, while '==>' means implies).
+(In case you haven't seem them before, \(\rightarrow\) encapsulates that \(e_1\) happens first, then \(e_2\), while \(\implies\) means implies).
 
 So our *Logical Clock* is a kind of function. A simple function that could do this, in java for example, would be,
 
@@ -54,7 +56,9 @@ we just used real clocks instead! Therefore, we need to define a sense of *consi
 
 A *Logical Clock* is said to be *consistent* if,
 
-e1 -> e2 ==> C(e1) < C(e2)
+$$
+e_1 \rightarrow e_2 \implies C(e_1) < C(e_2)
+$$
 
 This is exactly what we stated in the earlier section! This is because logical clocks are really only useful if they are at least *consistent*.
 
@@ -72,9 +76,11 @@ This is exactly what we stated in the earlier section! This is because logical c
 > ```
 > Despite each event in time generating a unique time stamp, the new time stamp is not all that useful, as they cannot be ordered!
 
-A *LogicalClock* that is *strongly consistent* is one where we can determine causality just from the timestamps alone,
+A *Logical Clock* that is *strongly consistent* is one where we can determine causality just from the timestamps alone,
 
-C(e1) < C(e2) ==> e1 -> e2
+$$
+C(e_1) < C(e_2) \implies e_1 \rightarrow e_2
+$$
 
 A synchronous clock like the one we defined above is also *strongly consistent*, however this attribute is much harder to maintain in a distributed context.
 
@@ -84,11 +90,13 @@ A *Lamport Clock* is a type of *Logical Clock*, that guarantees *consistency*, b
 we make each one of our timestamps a simple increment for the case of a single process/node generating events. Things get slightly more complex when we introduce
 other processes.
 
-If some process *pi* receives a message from *pj*, and it has some time stamp, called *t*, we set the time stamp of *pj* to be,
+If some process \(p_i\) receives a message from \(p_j\), and it has some time stamp, called \(t\), we set the time stamp of \(p_j\) to be,
 
-MAX(time at *pj* + 1, *t* + 1)
+$$
+\max(\text{time at} \ p_j, t + 1)
+$$
 
-This *guarantees* that the time at *pj* will be greater, ensuring that the timestamp both at *pj* is always larger, which means all things that happened before
+This *guarantees* that the time at \(p_j\) will be greater, ensuring that the timestamp both at \(p_j\) is always larger, which means all things that happened before
 receiving this message (at least on the scale of this node), have smaller timestamps. Take a moment to convince yourself of this.
 
 This is an interesting concept, because by only adding some ever growing integer, we can determine some order to our events. This is going to grow into something far
