@@ -1,0 +1,98 @@
+{{ define "main" }}
+<article class="post-content">
+    <div class="content-wrapper">
+        <h1>{{ .Title }}</h1>
+        <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+
+        {{ .Content }}
+
+        <div id="footnotes-section"></div>
+    </div>
+</article>
+
+<p>
+    <a href="/">&larr; Back to home</a>
+    {{ with .OutputFormats.Get "markdown" }}
+    | <a href="{{ .RelPermalink }}" download>Download Markdown</a>
+    {{ end }}
+</p>
+
+<script>
+// On mobile, collect sidenotes and display at the end
+let sidenotesOrganized = false;
+
+function positionSidenotes() {
+    if (window.innerWidth < 1200) return;
+
+    const contentWrapper = document.querySelector('.content-wrapper');
+    if (!contentWrapper) return;
+
+    const sidenotes = Array.from(document.querySelectorAll('.sidenote'));
+    const containers = Array.from(document.querySelectorAll('.sidenote-container'));
+
+    // Position each sidenote relative to its reference point
+    containers.forEach((container, index) => {
+        const sidenote = container.querySelector('.sidenote');
+        if (!sidenote) return;
+
+        const containerRect = container.getBoundingClientRect();
+        const wrapperRect = contentWrapper.getBoundingClientRect();
+
+        // Calculate position relative to content-wrapper
+        const topPosition = containerRect.top - wrapperRect.top;
+        sidenote.style.top = topPosition + 'px';
+    });
+
+    // Now check for overlaps and adjust
+    for (let i = 0; i < sidenotes.length - 1; i++) {
+        const current = sidenotes[i];
+        const next = sidenotes[i + 1];
+
+        const currentRect = current.getBoundingClientRect();
+        const nextRect = next.getBoundingClientRect();
+
+        // If next sidenote overlaps with current, push it down
+        if (nextRect.top < currentRect.bottom + 10) {
+            const currentTop = parseFloat(current.style.top) || 0;
+            const currentHeight = currentRect.height;
+            next.style.top = (currentTop + currentHeight + 10) + 'px';
+        }
+    }
+}
+
+function organizeSidenotes() {
+    const sidenotes = document.querySelectorAll('.sidenote');
+    const footnotesSection = document.getElementById('footnotes-section');
+
+    if (!footnotesSection) return;
+
+    if (window.innerWidth < 1200) {
+        // Mobile: show at bottom
+        if (!sidenotesOrganized) {
+            footnotesSection.innerHTML = '<hr style="margin-top: 40px; border: none; border-top: 1px solid var(--border-color);"><h3>Notes</h3>';
+
+            sidenotes.forEach((sidenote) => {
+                const clone = sidenote.cloneNode(true);
+                clone.style.display = 'block';
+                clone.style.position = 'static';
+                clone.style.width = 'auto';
+                clone.style.marginBottom = '15px';
+                footnotesSection.appendChild(clone);
+            });
+            sidenotesOrganized = true;
+        }
+    } else {
+        // Desktop: clear footnotes section and position sidenotes
+        if (sidenotesOrganized) {
+            footnotesSection.innerHTML = '';
+            sidenotesOrganized = false;
+        }
+        setTimeout(positionSidenotes, 100);
+    }
+}
+
+organizeSidenotes();
+window.addEventListener('resize', organizeSidenotes);
+window.addEventListener('load', positionSidenotes);
+</script>
+{{ end }}

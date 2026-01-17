@@ -3,7 +3,10 @@ title: "Home"
 date: 2023-06-27
 ---
 
+Software engineer, aspiring polymath. I like to do a little bit of everything.
 
-# Hi, I'm Tyler
+Interested in proving correctness, embedded systems, system design, genetic engineering, microscopy, 
+mechanical engineering, pure math (mostly algebra, category theory, number theory), operating systems design,
+security, and more.
 
-software engineer, aspiring postmath
+Open to research work and projects ([email me](mailto:hello@clortox.com))

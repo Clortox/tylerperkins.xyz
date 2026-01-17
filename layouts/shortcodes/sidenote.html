@@ -1,0 +1,7 @@
+{{- $id := .Ordinal -}}
+<span class="sidenote-container">
+  <a href="#sn-{{ $id }}" id="snref-{{ $id }}" class="sidenote-ref">[{{ $id }}]</a>
+  <span id="sn-{{ $id }}" class="sidenote">
+    <a href="#snref-{{ $id }}" class="sidenote-ref">[{{ $id }}]</a> {{ .Inner | markdownify }}
+  </span>
+</span>
