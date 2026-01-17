@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+    <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="/index.xml">
+    <style>
+        :root {
+            --bg-color: #fff;
+            --text-color: #333;
+            --link-color: #0066cc;
+            --border-color: #ccc;
+            --secondary-color: #666;
+            --code-bg: #f4f4f4;
+            --code-border: #ddd;
+        }
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --link-color: #6ba3ff;
+            --border-color: #444;
+            --secondary-color: #999;
+            --code-bg: #2d2d2d;
+            --code-border: #444;
+            --shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+        :root {
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: var(--text-color);
+            background: var(--bg-color);
+            transition: background 0.3s, color 0.3s;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3 {
+            line-height: 1.2;
+        }
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        nav a {
+            font-size: 14px;
+        }
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .theme-toggle:hover {
+            background: var(--code-bg);
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+        .date {
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            background: var(--code-bg);
+            padding: 2px 5px;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        /* Heading anchors */
+        .heading-anchor {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .heading-anchor:hover {
+            text-decoration: none;
+        }
+        .anchor-icon {
+            opacity: 0;
+            margin-right: 5px;
+            color: var(--link-color);
+            transition: opacity 0.2s;
+        }
+        .heading-anchor:hover .anchor-icon {
+            opacity: 1;
+        }
+
+        /* Sidenotes/Margin notes */
+        /* Hide sidenotes by default (except on single post pages) */
+        .sidenote-container {
+            display: none;
+        }
+        .post-content .sidenote-container {
+            display: inline;
+        }
+        .sidenote-ref {
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 0.85em;
+            vertical-align: super;
+            line-height: 0;
+        }
+
+        /* Mobile: sidenotes at the end */
+        @media (max-width: 1199px) {
+            .post-content .sidenote-container {
+                display: inline;
+            }
+            .post-content .sidenote {
+                display: none;
+            }
+            #footnotes-section {
+                margin-top: 20px;
+            }
+            #footnotes-section .sidenote {
+                display: block;
+                position: static;
+                margin-bottom: 15px;
+                font-size: 0.85em;
+                line-height: 1.4;
+                padding: 10px;
+                background: var(--code-bg);
+                border-left: 2px solid var(--link-color);
+                border-radius: 3px;
+                box-shadow: var(--shadow);
+            }
+        }
+
+        /* Desktop: sidenotes in right margin */
+        @media (min-width: 1200px) {
+            /* Only expand body width when sidenotes actually exist */
+            body:has(.sidenote) {
+                max-width: 1000px;
+                overflow-x: hidden;
+            }
+            .post-content {
+                position: relative;
+            }
+            .post-content .content-wrapper {
+                max-width: 650px;
+                position: relative;
+            }
+            .post-content .sidenote-container {
+                position: static;
+            }
+            .post-content .sidenote {
+                position: absolute;
+                left: 690px;
+                width: 250px;
+                font-size: 0.85em;
+                line-height: 1.4;
+                padding: 10px;
+                margin-top: 0;
+                background: var(--code-bg);
+                border-left: 2px solid var(--link-color);
+                border-radius: 3px;
+                box-shadow: var(--shadow);
+            }
+            #footnotes-section {
+                display: none;
+            }
+            #sidenotes-column {
+                display: none;
+            }
+        }
+    </style>
+    <script>
+        // Theme toggle - runs immediately to prevent flash
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            }
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1><a href="/">{{ .Site.Title }}</a></h1>
+        <div class="header-right">
+            <nav>
+                <a href="/resume.pdf">Resume</a>
+            </nav>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                <span class="theme-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+      <p>&copy; {{ now.Year }} {{ .Site.Title }} | <a href="/index.xml">RSS</a> | <a href="/me.gpg">PGP Key</a> | <a href="/resume.pdf">Resume</a></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const icon = document.querySelector('.theme-icon');
+            icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        updateThemeIcon();
+    </script>
+</body>
+</html>

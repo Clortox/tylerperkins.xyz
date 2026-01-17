@@ -1,21 +1,19 @@
-baseURL: 'http://tylerperkins.xyx'
+baseURL: 'http://tylerperkins.xyz'
 languageCode: 'en-us'
-LanguageCode: 'en-us'
-title: 'Tylers Website'
-theme: "clortox"
-markup:
-  goldmark:
-    extensions:
-      passthrough:
-        delimiters:
-          block:
-          - - \[
-            - \]
-          - - $$
-            - $$
-          inline:
-          - - \(
-            - \)
-        enable: true
-params:
-  math: true
+title: "Tyler Perkins"
+
+outputs:
+  page:
+    - HTML
+    - markdown
+
+outputFormats:
+  markdown:
+    mediaType: "text/markdown"
+    isPlainText: true
+    isHTML: false
+    permalinkable: false
+    name: "markdown"
+    path: ""
+    baseName: "index"
+    rel: "alternate"

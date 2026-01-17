@@ -1,32 +1,17 @@
 {{ define "main" }}
-    <div class="centered top-fade">
-        <div class="intro-content">
-            <h1 data-value="Hi, I'm Tyler" data-show="intro-tagline" class="typewriter"></h1>
-            <div id="intro-tagline">
-                <p data-value="Software engineer, aspiring polymath"></p>
-            </div>
-        </div>
-    </div>
-    <div class="homepage-card">
-        <div>
-            <h4 data-show="about-description" data-value="uname -a" class="typewriter card-title">~ $&nbsp;</h1>
-            <br/>
-            <small>About me</small>
-        </div>
-        <div class="about-grid">
-            <div id="about-description" class="about-description">
-                {{ range .Site.Data.index.About.Content }}
-                    <p data-value="{{ .value }}"></p>
-                {{ end }}
-            </div>
-            <div class="mini-terminal">
-                <p data-show="about-interests" data-value="cat interests.txt | less" class="typewriter">~ $&nbsp;</p>
-                <div id="about-interests" class="terminal-contents">
-                    {{ range .Site.Data.index.About.Interests }}
-                        <p class="terminal-text" data-value="{{ .value }}"></p>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </div>
+{{ .Content }}
+
+<h2>Recent Posts</h2>
+
+{{ range first 10 (where .Site.RegularPages "Type" "posts") }}
+<article style="margin-bottom: 30px;">
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+    {{ if .Summary }}
+    <p>{{ .Summary }}</p>
+    {{ end }}
+</article>
+{{ end }}
+
+<p><a href="/posts/">View all posts &rarr;</a></p>
 {{ end }}

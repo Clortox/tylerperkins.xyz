@@ -1,0 +1,12 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ range .Pages }}
+<article style="margin-bottom: 25px;">
+    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <p class="date">{{ .Date.Format "January 2, 2006" }}</p>
+</article>
+{{ end }}
+
+<p><a href="/">&larr; Back to home</a></p>
+{{ end }}
