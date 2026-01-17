@@ -6,17 +6,23 @@ window.onload = function() {
         item.addEventListener("mouseover", scramble);
     });
 
-    window.addEventListener('scroll', function() {
-        let parallax = document.querySelector('.parallax')
-        let scrollPosition = window.pageYOffset;
+    // Set parallax height once on load
+    let parallax = document.querySelector('.parallax');
+    if (parallax) {
+        let content = document.querySelector('#content');
+        // Set height to content height but don't go below viewport height
+        let contentHeight = content.scrollHeight;
+        let parallaxHeight = Math.max(contentHeight, window.innerHeight);
+        parallax.style.height = parallaxHeight + "px";
 
-        let newSize = (document.querySelector('#content').offsetHeight * 0.8);
-        if(newSize < window.innerHeight)
-            newSize = window.innerHeight;
-        parallax.style.height = newSize + "px";
+        // Add scroll listener for parallax effect
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.pageYOffset;
+            // Move background down slower than scroll (creates parallax depth)
+            parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+        });
+    }
 
-        parallax.style.transform = 'translateY(' + scrollPosition * .5 + 'px)';
-    })
     document.querySelectorAll(".typewriter").forEach(item => {
         observer.observe(item);
     });
